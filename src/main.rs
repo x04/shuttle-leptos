@@ -10,8 +10,6 @@ async fn axum() -> shuttle_axum::ShuttleAxum {
 
     simple_logger::init_with_level(log::Level::Debug).expect("couldn't initialize logging");
 
-    log::debug!("{:?}", std::option_env!("LEPTOS_OUTPUT_NAME"));
-
     // Setting get_configuration(None) means we'll be using cargo-leptos's env values
     // For deployment these variables are:
     // <https://github.com/leptos-rs/start-axum#executing-a-server-on-a-remote-machine-without-the-toolchain>
