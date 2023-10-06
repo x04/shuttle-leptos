@@ -21,8 +21,6 @@ async fn axum() -> shuttle_axum::ShuttleAxum {
     let site_pkg_dir = format!("{}/{}",  &leptos_options.site_root, &leptos_options.site_pkg_dir);
     let wasm_path = format!("{}/{}.wasm", &site_pkg_dir, &leptos_options.output_name);
     let should_rename_wasm = Path::new(&wasm_path).exists();
-    dbg!(&wasm_path, should_rename_wasm);
-    log::debug!("{} {}", &wasm_path, should_rename_wasm);
     if should_rename_wasm {
         std::fs::rename(wasm_path, format!("{}/{}_bg.wasm", &site_pkg_dir, &leptos_options.output_name))?;
     }
